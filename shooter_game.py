@@ -19,6 +19,7 @@ class GameSprite(sprite.Sprite):
         self.rect.y = player_y
     def reset(self):
         window.blit(self.image, (self.rect.x, self.rect.y))
+        
 class Player(GameSprite):
     def update(self):
         keys = key.get_pressed()
@@ -29,7 +30,6 @@ class Player(GameSprite):
     def fire(self):
         bullet = Bullet('bullet.png', 20, 25, self.rect.centerx, self.rect.top, -15)
         bullets.add(bullet)
-
 
 class enemy(GameSprite):
     def update(self):
@@ -50,7 +50,6 @@ class Bullet(GameSprite):
 players = sprite.Group()
 player = Player("rocket.png", 65, 65, 350, 400, 10)
 players.add(player)
-
 
 monsters = sprite.Group()
 for i in range (1,6):
@@ -91,10 +90,6 @@ while game:
         score = score + 1 
         monster = enemy("ufo.png",65, 65,randint(50,650),10, 2)
         
-
-
-
-
     monsters.add(monster)
 
     for i in event.get():
@@ -130,4 +125,4 @@ while game:
            
     display.update() 
     time.delay(30)
-#wfwf
+
